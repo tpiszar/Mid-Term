@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
 {
-    public bool grounded = true;
+    public bool isGrounded = true;
+    public GameObject lava;
+    public bool hitLava = false;
+
     private void OnTriggerEnter(Collider other)
     {
-        grounded = true;
+        isGrounded = true;
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        isGrounded = true;
     }
     private void OnTriggerExit(Collider other)
     {
-        grounded = false;
-    }
-    public bool isGrounded()
-    {
-        return grounded;
+        isGrounded = false;
     }
 }
