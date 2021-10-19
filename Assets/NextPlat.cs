@@ -21,9 +21,12 @@ public class NextPlat : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
-        score.score += 1;
-        GameObject newPlat = Instantiate(platform, new Vector3(Random.Range(-4f, 4f), this.transform.position.y + nextHeight, Random.Range(-4f, 4f)), Quaternion.identity);
-        newPlat.GetComponent<NextPlat>().score = score;
-        Destroy(this);
+        if (other.gameObject.name != "Lava")
+        {
+            score.score += 1;
+            GameObject newPlat = Instantiate(platform, new Vector3(Random.Range(-4f, 4f), this.transform.position.y + nextHeight, Random.Range(-4f, 4f)), Quaternion.identity);
+            newPlat.GetComponent<NextPlat>().score = score;
+            Destroy(this);
+        }
     }
 }

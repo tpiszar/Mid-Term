@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Lava : MonoBehaviour
 {
-    public GameObject camera;
     public float startDelay = 5f;
     private float startTime;
     public float speed = 1.5f;
@@ -23,10 +22,6 @@ public class Lava : MonoBehaviour
             Vector3 temp = this.transform.position;
             temp.y += speed * Time.deltaTime;
             this.transform.position = temp;
-        }
-        if (this.transform.position.y >= camera.transform.position.y - 1)
-        {
-            Destroy(this);
         }
     }
 
