@@ -109,4 +109,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 3290720645522535155}
+  scoreChecker: {fileID: 0}
   nextHeight: 3
