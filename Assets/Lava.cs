@@ -7,6 +7,7 @@ public class Lava : MonoBehaviour
     public float startDelay = 5f;
     private float startTime;
     public float speed = 1.5f;
+    public AudioSource destroySnd;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class Lava : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        destroySnd.Play();
         Destroy(other.gameObject);
     }
 }

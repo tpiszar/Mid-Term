@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject player;
     bool isPaused = false;
     bool end = false;
+    public AudioSource clickSnd;
 
     private void Start()
     {
@@ -40,6 +41,7 @@ public class PauseMenu : MonoBehaviour
 
     public void TogglePause()
     {
+        clickSnd.Play();
         if (isPaused)
         {
             //unpause
@@ -62,11 +64,13 @@ public class PauseMenu : MonoBehaviour
 
     public void OnApplicationQuit()
     {
+        clickSnd.Play();
         Application.Quit();
     }
 
     public void Restart(string name)
     {
+        clickSnd.Play();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(name);
     }

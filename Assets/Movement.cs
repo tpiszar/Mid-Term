@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
     public GameObject groundCheck;
     private GroundCheck checker;
     public GameObject camera;
+    public AudioSource jumpSnd;
 
     void Start()
     {
@@ -41,6 +42,7 @@ public class Movement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && checker.isGrounded) //controller.isGrounded
         {
+            jumpSnd.Play();
             velocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
         }
 
