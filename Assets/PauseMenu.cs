@@ -9,12 +9,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject resume;
     public GameObject quit;
     public GameObject newGame;
-    public GameObject lava;
-    public GameObject camera;
     public GameObject player;
     bool isPaused = false;
     bool end = false;
     public AudioSource clickSnd;
+    public AudioSource music;
 
     private void Start()
     {
@@ -36,6 +35,7 @@ public class PauseMenu : MonoBehaviour
             this.gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0.34509803921f);
             newGame.SetActive(true);
             quit.SetActive(true);
+            music.Stop();
         }
     }
 
@@ -50,6 +50,7 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 1.0f;
             resume.SetActive(false);
             quit.SetActive(false);
+            music.UnPause();
         }
         else
         {
@@ -59,6 +60,7 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0.0f;
             resume.SetActive(true);
             quit.SetActive(true);
+            music.Pause();
         }
     }
 
