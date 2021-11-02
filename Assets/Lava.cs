@@ -8,6 +8,7 @@ public class Lava : MonoBehaviour
     private float startTime;
     public float speed = 1.5f;
     public AudioSource destroySnd;
+    public GameObject explosionEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,8 @@ public class Lava : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Vector3 particleSpawnPoint = other.transform.position;
+        Instantiate(explosionEffect, particleSpawnPoint, Quaternion.identity);
         destroySnd.Play();
         Destroy(other.gameObject);
     }
