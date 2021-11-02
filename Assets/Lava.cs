@@ -30,7 +30,7 @@ public class Lava : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Vector3 particleSpawnPoint = other.transform.position;
-        Instantiate(explosionEffect, particleSpawnPoint, Quaternion.identity);
+        Instantiate(explosionEffect, particleSpawnPoint, Quaternion.Euler(-90,0,0));
         destroySnd.Play();
         Destroy(other.gameObject);
     }
